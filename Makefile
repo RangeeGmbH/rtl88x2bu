@@ -1349,8 +1349,8 @@ EXTRA_CFLAGS += -DCONFIG_IOCTL_CFG80211 -DRTW_USE_CFG80211_STA_EVENT
 SUBARCH := $(shell uname -m | sed -e s/i.86/i386/)
 ARCH ?= $(SUBARCH)
 CROSS_COMPILE ?=
-KVER  := $(shell uname -r)
-KSRC := /lib/modules/$(KVER)/build
+KVER ?= $(shell uname -r)
+KSRC ?= /lib/modules/$(KVER)/build
 MODDESTDIR := /lib/modules/$(KVER)/kernel/drivers/net/wireless/
 INSTALL_PREFIX :=
 STAGINGMODDIR := /lib/modules/$(KVER)/kernel/drivers/staging
@@ -1368,7 +1368,7 @@ EXTRA_CFLAGS += -DCONFIG_IOCTL_CFG80211 -DRTW_USE_CFG80211_STA_EVENT
 ARCH ?= arm
 CROSS_COMPILE ?=
 KVER ?= $(shell uname -r)
-KSRC := /lib/modules/$(KVER)/build
+KSRC ?= /lib/modules/$(KVER)/build
 MODDESTDIR := /lib/modules/$(KVER)/kernel/drivers/net/wireless/
 INSTALL_PREFIX :=
 endif
@@ -1384,7 +1384,7 @@ EXTRA_CFLAGS += -fno-stack-protector
 ARCH ?= arm64
 CROSS_COMPILE ?=
 KVER ?= $(shell uname -r)
-KSRC := /lib/modules/$(KVER)/build
+KSRC ?= /lib/modules/$(KVER)/build
 MODDESTDIR := /lib/modules/$(KVER)/kernel/drivers/net/wireless/
 INSTALL_PREFIX :=
 endif
@@ -1417,8 +1417,8 @@ EXTRA_CFLAGS += -DCONFIG_IOCTL_CFG80211 -DRTW_USE_CFG80211_STA_EVENT
 ARCH ?= arm
 
 CROSS_COMPILE ?=
-KVER := $(shell uname -r)
-KSRC := /lib/modules/$(KVER)/build
+KVER ?= $(shell uname -r)
+KSRC ?= /lib/modules/$(KVER)/build
 MODDESTDIR := /lib/modules/$(KVER)/kernel/drivers/net/wireless/
 INSTALL_PREFIX :=
 endif
@@ -1679,7 +1679,7 @@ ifeq ($(CONFIG_PLATFORM_MOZART), y)
 EXTRA_CFLAGS += -DCONFIG_LITTLE_ENDIAN -DCONFIG_PLATFORM_MOZART
 ARCH := arm
 CROSS_COMPILE := /home/vivotek/lsp/mozart3v2/Mozart3e_Toolchain/build_arm_nofpu/usr/bin/arm-linux-
-KVER  := $(shell uname -r)
+KVER ?= $(shell uname -r)
 KSRC:= /opt/Vivotek/lsp/mozart3v2/kernel_platform/kernel/mozart_kernel-1.17
 KERNELOUTPUT := /home/pink/sample/ODM/IP8136W-VINT/tmp/kernel
 endif
